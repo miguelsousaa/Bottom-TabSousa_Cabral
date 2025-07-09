@@ -17,37 +17,32 @@ const CORES = {
   branco: '#ffffff',
 };
 
-// Componente que configura e renderiza a navegação
 export default function AppRoutes() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        // Função para definir o ícone de cada aba
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
           if (route.name === 'Início') {
-            iconName = focused ? 'home' : 'home-outline'; // Ícone da aba Início 
+            iconName = focused ? 'home' : 'home-outline'; 
           } else if (route.name === 'Horários') {
-            iconName = focused ? 'calendar' : 'calendar-outline'; // Ícone da aba Horários 
+            iconName = focused ? 'calendar' : 'calendar-outline'; 
           } else if (route.name === 'Ajuda') {
-            iconName = focused ? 'help-circle' : 'help-circle-outline'; // Ícone da aba Ajuda 
+            iconName = focused ? 'help-circle' : 'help-circle-outline';  
           }
 
-          // Retorna o componente de ícone
-          return <Ionicons name={iconName} size={28} color={color} />; // Tamanho do ícone: 28px 
+          return <Ionicons name={iconName} size={28} color={color} />; 
         },
-        // Estilos da barra de abas
         tabBarStyle: {
-          backgroundColor: CORES.azulInstitucional, // Cor de fundo azul institucional 
+          backgroundColor: CORES.azulInstitucional, 
         },
-        tabBarActiveTintColor: CORES.branco, // Cor do ícone ativo: branco 
-        tabBarInactiveTintColor: CORES.cinzaClaro, // Cor do ícone inativo: cinza claro 
-        tabBarShowLabel: false, // Esconde o texto do ícone 
-        headerShown: false, // Vamos esconder o cabeçalho por enquanto
+        tabBarActiveTintColor: CORES.branco, 
+        tabBarInactiveTintColor: CORES.cinzaClaro, 
+        tabBarShowLabel: false,
+        headerShown: false, 
       })}
     >
-      {/* Definindo cada aba do aplicativo */}
       <Tab.Screen name="Início" component={InicioScreen} />
       <Tab.Screen name="Horários" component={HorariosScreen} />
       <Tab.Screen name="Ajuda" component={AjudaScreen} />
