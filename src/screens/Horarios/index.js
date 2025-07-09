@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
 
-// Cores para manter a consistência visual
 const CORES = {
   azulInstitucional: '#005a9c',
   textoPrincipal: '#34495e',
@@ -9,14 +8,9 @@ const CORES = {
   cinzaFundo: '#f4f4f4',
 };
 
-// Componente da Tela de Horários
-// Recebe 'route' como propriedade para acessar os parâmetros
 const HorariosScreen = ({ route }) => {
-  // Acessa o parâmetro 'nome' de forma segura com "optional chaining" (?.)
-  // Se route.params ou route.params.nome não existirem, 'nome' será undefined
   const nome = route.params?.nome;
 
-  // Lista fictícia de horários
   const horarios = [
     { dia: 'Segunda', materia: 'Matemática', horario: '08h às 09h40' },
     { dia: 'Terça', materia: 'Física', horario: '10h às 11h40' },
@@ -29,9 +23,7 @@ const HorariosScreen = ({ route }) => {
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={CORES.branco} />
 
-      {/* A renderização muda com base na existência do parâmetro 'nome' */}
       {nome ? (
-        // Se 'nome' EXISTE, mostra a saudação personalizada e os horários
         <View style={styles.content}>
           <Text style={styles.greetingText}>
             Olá, <Text style={styles.studentName}>{nome}</Text>!
@@ -50,7 +42,6 @@ const HorariosScreen = ({ route }) => {
           </View>
         </View>
       ) : (
-        // Se 'nome' NÃO EXISTE, mostra a mensagem genérica
         <View style={styles.content}>
           <Text style={styles.genericText}>
             Horários de aula não personalizados.
@@ -64,7 +55,6 @@ const HorariosScreen = ({ route }) => {
   );
 };
 
-// Folha de estilos do componente
 const styles = StyleSheet.create({
   container: {
     flex: 1,
