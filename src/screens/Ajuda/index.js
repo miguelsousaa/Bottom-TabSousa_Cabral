@@ -8,7 +8,6 @@ import {
   StatusBar,
 } from 'react-native';
 
-// Cores institucionais para manter a identidade visual
 const CORES = {
   azulInstitucional: '#005a9c',
   laranjaComplementar: '#f39c12',
@@ -17,21 +16,18 @@ const CORES = {
   cinzaFundo: '#f4f4f4',
 };
 
-// Componente da Tela de Ajuda
 const AjudaScreen = () => {
-  // Lista com as perguntas frequentes, conforme solicitado no documento
   const perguntasFrequentes = [
     'Como acessar o SIGAA?',
     'Como solicitar declaração de matrícula?',
     'Onde consultar minhas notas?',
   ];
 
-  // Função que será chamada ao pressionar o botão "Fale conosco"
   const mostrarAlertaContato = () => {
     Alert.alert(
-      'Fale Conosco', // Título do Alerta
-      'Entre em contato pelo e-mail suporte@cefetmg.br', // Mensagem do Alerta 
-      [{ text: 'OK' }] // Botão para fechar o alerta
+      'Fale Conosco', 
+      'Entre em contato pelo e-mail suporte@cefetmg.br', 
+      [{ text: 'OK' }] 
     );
   };
 
@@ -39,17 +35,14 @@ const AjudaScreen = () => {
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={CORES.branco} />
 
-      {/* Cabeçalho da tela */}
       <View style={styles.header}>
         <Text style={styles.headerText}>Central de Ajuda</Text>
       </View>
 
       <View style={styles.content}>
-        {/* Seção de Perguntas Frequentes */}
         <Text style={styles.sectionTitle}>Perguntas Frequentes</Text>
 
         <View style={styles.faqContainer}>
-          {/* Mapeia a lista de perguntas para renderizar cada uma */}
           {perguntasFrequentes.map((pergunta, index) => (
             <View key={index} style={styles.faqItem}>
               <Text style={styles.faqText}>{pergunta}</Text>
@@ -57,7 +50,6 @@ const AjudaScreen = () => {
           ))}
         </View>
 
-        {/* Botão para entrar em contato */}
         <TouchableOpacity style={styles.button} onPress={mostrarAlertaContato}>
           <Text style={styles.buttonText}>Fale conosco</Text>
         </TouchableOpacity>
@@ -66,7 +58,6 @@ const AjudaScreen = () => {
   );
 };
 
-// Folha de estilos do componente
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -113,7 +104,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderRadius: 8,
     alignItems: 'center',
-    marginTop: 'auto', // Empurra o botão para a parte de baixo
+    marginTop: 'auto',
   },
   buttonText: {
     color: CORES.branco,
